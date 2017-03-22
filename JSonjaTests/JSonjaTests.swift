@@ -63,7 +63,7 @@ class JSonjaTests: XCTestCase {
     }
     
     func testClassConstruction() {
-        guard let team = DerbyTeam(item: JsonItem(dict: testJson)) else {
+        guard let team: DerbyTeam = DerbyTeam(item: JsonItem(dict: testJson)) else {
                 XCTFail()
                 return
         }
@@ -79,8 +79,8 @@ class JSonjaTests: XCTestCase {
 
 struct DerbyTeam: JSonjaConstructed {
     let teamName: String
-    let foundingYear: Int?
     let location: Location
+    let foundingYear: Int?
     let players: [Player]?
     
     init?(item: JsonItem?){
