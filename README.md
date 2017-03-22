@@ -83,7 +83,7 @@ The evaluation operator `~` will return an optional of a type, but there's a sec
 
 Sample Struct (Second Pass)
 -----
-Using the `~!` Operator, we can eliminate the multiple lines used for the assignment of required vars. Instead of assigning to one variable inside a guard and using that to make a second assignment, we put all the required assigment inside a do-catch, shortening our code.
+Using the `~!` Operator, we can eliminate the multiple lines used for the assignment of required vars. Instead of assigning to one variable inside a guard and using that to make a second assignment, we put all the required assigment inside a do-catch, shortening our code. While it's only one line shorter in this example, it can shorten things significantly when there are more required fields.
 
 ```
 struct DerbyTeam: JSonjaConstructed {
