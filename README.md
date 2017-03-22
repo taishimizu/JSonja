@@ -58,22 +58,22 @@ Using what we know right now, we can easily define a struct initializable using 
 
 ```
 struct DerbyTeam: JSonjaConstructed {
-let teamName: String
-let location: Location
-let foundingYear: Int?
-let players: [Player]?
+    let teamName: String
+    let location: Location
+    let foundingYear: Int?
+    let players: [Player]?
 
-init?(item: JsonItem?){
-guard let item = item,
-let teamName = item["TeamName"],
-let location = item["Location"]
-else { return nil }
+    init?(item: JsonItem?){
+        guard let item = item,
+            let teamName = item["TeamName"],
+            let location = item["Location"]
+            else { return nil }
 
-self.teamName = teamName
-self.location = location
-foundingYear = item["FoundingYear"]
-players = item["Players"]~
-}
+        self.teamName = teamName
+        self.location = location
+        foundingYear = item["FoundingYear"]
+        players = item["Players"]~
+    }
 }
 ```
 
@@ -87,20 +87,20 @@ Using the `~!` Operator, we can eliminate the multiple lines used for the assign
 
 ```
 struct DerbyTeam: JSonjaConstructed {
-let teamName: String
-let location: Location
-let foundingYear: Int?
-let players: [Player]?
+    let teamName: String
+    let location: Location
+    let foundingYear: Int?
+    let players: [Player]?
 
-init?(item: JsonItem?){
-guard let item = item else { return nil }
-do {
-teamName = try item["TeamName"]~!
-location = try item["Location"]~!
-} catch _ { return nil }
+    init?(item: JsonItem?){
+        guard let item = item else { return nil }
+        do {
+            teamName = try item["TeamName"]~!
+            location = try item["Location"]~!
+        } catch _ { return nil }
 
-foundingYear = item["FoundingYear"]
-players = item["Players"]~
-}
+        foundingYear = item["FoundingYear"]
+        players = item["Players"]~
+    }
 }
 ```
