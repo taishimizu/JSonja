@@ -65,8 +65,8 @@ struct DerbyTeam: JSonjaConstructed {
 
     init?(item: JsonItem?){
         guard let item = item,
-            let teamName = item["TeamName"],
-            let location = item["Location"]
+            let teamName: String = item["TeamName"],
+            let location: Location = item["Location"]
             else { return nil }
 
         self.teamName = teamName
